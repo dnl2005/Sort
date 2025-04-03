@@ -1,7 +1,10 @@
+using System.Linq.Expressions;
+
 namespace Interface
 {
     public partial class ProjectSort : Form
     {
+        List<int> fileContent = new List<int>(); // список чисел на обработку
         public ProjectSort()
         {
             InitializeComponent();
@@ -38,9 +41,7 @@ namespace Interface
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            List<int> fileContent = new List<int>(); // список чисел на обработку
             string filePath; //путь к файлу
-
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\"; // папка с которой начинается выбор
@@ -56,12 +57,12 @@ namespace Interface
                         using (StreamReader reader = new StreamReader(openFileDialog.FileName))
                         {
                             string line;
+                            List<int> lineContent = new List<int>();
                             while ( (line = reader.ReadLine()) != null)
                             {
-                                //вопрос в том, какой формат записи будет ожидаться в файле
-                                //1, 2, 3
-                                //или
-                                //1 2 3 
+                                lineContent.AddRange(line.Split(",").Select(s => int.Parse(s)));
+                                fileContent.AddRange(lineContent);
+                                lineContent.Clear();
                             }
                         }
                     }
