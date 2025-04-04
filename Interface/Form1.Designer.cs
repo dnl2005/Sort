@@ -253,7 +253,7 @@
             Controls.Add(label1);
             Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
             Name = "ProjectSort";
-            Text = "s";
+            Text = "ProjectSort";
             ResumeLayout(false);
             PerformLayout();
         }

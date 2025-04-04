@@ -42,7 +42,7 @@ namespace Interface
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            fileContent.Clear();
+            fileContent.Clear(); // очистка старого списка, если выбран новый файл
             string filePath; //путь к файлу
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -71,16 +71,16 @@ namespace Interface
                         }
                         if (fileContent.Count==0)
                         {
-                            throw new Exception("Файл пуст");
+                            throw new Exception("Выбранный файл пуст");
                         }
                     }
                     catch (IOException)
                     {
-                        MessageBox.Show("Ошибка чтения файла.");
+                        MessageBox.Show("Ошибка чтения выбранного файла.");
                     }
                     catch (FormatException)
                     {
-                        MessageBox.Show("Некорректные данные для сортировки в файле.");
+                        MessageBox.Show("Некорректные данные для сортировки в выбранном файле.");
                     }
                     catch (Exception ex)
                     {
