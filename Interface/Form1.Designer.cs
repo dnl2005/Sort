@@ -50,16 +50,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Monotype Corsiva", 36F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Italic, GraphicsUnit.Point, 204);
             label1.Location = new Point(338, 8);
             label1.Name = "label1";
-            label1.Size = new Size(709, 72);
+            label1.Size = new Size(681, 55);
             label1.TabIndex = 0;
             label1.Text = "Проект \"Методы сортировки\"";
             // 
             // button1
             // 
-            button1.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button1.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button1.Location = new Point(565, 94);
             button1.Name = "button1";
             button1.Size = new Size(270, 54);
@@ -71,56 +71,56 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Monotype Corsiva", 36F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label2.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Italic, GraphicsUnit.Point, 204);
             label2.Location = new Point(338, 8);
             label2.Name = "label2";
-            label2.Size = new Size(709, 72);
+            label2.Size = new Size(681, 55);
             label2.TabIndex = 0;
             label2.Text = "Проект \"Методы сортировки\"";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
+            label3.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Italic);
             label3.Location = new Point(420, 151);
             label3.Name = "label3";
-            label3.Size = new Size(569, 51);
+            label3.Size = new Size(575, 39);
             label3.TabIndex = 2;
             label3.Text = "Способы сортировки по сложности";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
+            label4.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Italic);
             label4.Location = new Point(95, 202);
             label4.Name = "label4";
-            label4.Size = new Size(116, 51);
+            label4.Size = new Size(110, 39);
             label4.TabIndex = 2;
             label4.Text = "O(N² )";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
+            label5.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Italic);
             label5.Location = new Point(1080, 202);
             label5.Name = "label5";
-            label5.Size = new Size(243, 51);
+            label5.Size = new Size(232, 39);
             label5.TabIndex = 2;
             label5.Text = "O(N × Log(N))";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
+            label6.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Italic);
             label6.Location = new Point(658, 202);
             label6.Name = "label6";
-            label6.Size = new Size(96, 51);
+            label6.Size = new Size(90, 39);
             label6.TabIndex = 2;
             label6.Text = "O(N)";
             // 
             // button2
             // 
-            button2.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button2.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button2.Location = new Point(44, 275);
             button2.Name = "button2";
             button2.Size = new Size(270, 109);
@@ -131,7 +131,7 @@
             // 
             // button3
             // 
-            button3.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button3.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button3.Location = new Point(1068, 275);
             button3.Name = "button3";
             button3.Size = new Size(270, 109);
@@ -142,7 +142,7 @@
             // 
             // button4
             // 
-            button4.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button4.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button4.Location = new Point(44, 421);
             button4.Name = "button4";
             button4.Size = new Size(270, 109);
@@ -153,7 +153,7 @@
             // 
             // button5
             // 
-            button5.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button5.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button5.Location = new Point(1068, 421);
             button5.Name = "button5";
             button5.Size = new Size(270, 109);
@@ -165,16 +165,16 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic);
+            label7.Font = new Font("Microsoft Sans Serif", 27F, FontStyle.Italic);
             label7.Location = new Point(490, 253);
             label7.Name = "label7";
-            label7.Size = new Size(418, 54);
+            label7.Size = new Size(409, 40);
             label7.TabIndex = 2;
             label7.Text = "Сортировка черпаками";
             // 
             // button6
             // 
-            button6.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button6.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button6.Location = new Point(338, 371);
             button6.Name = "button6";
             button6.Size = new Size(189, 52);
@@ -186,16 +186,16 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
+            label8.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Italic);
             label8.Location = new Point(320, 304);
             label8.Name = "label8";
-            label8.Size = new Size(727, 51);
+            label8.Size = new Size(730, 39);
             label8.TabIndex = 2;
             label8.Text = "Число различных элементов для сортировки";
             // 
             // button7
             // 
-            button7.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button7.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button7.Location = new Point(858, 371);
             button7.Name = "button7";
             button7.Size = new Size(189, 52);
@@ -206,7 +206,7 @@
             // 
             // button8
             // 
-            button8.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button8.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
             button8.Location = new Point(598, 371);
             button8.Name = "button8";
             button8.Size = new Size(189, 52);
@@ -218,11 +218,11 @@
             // button9
             // 
             button9.BackColor = SystemColors.Highlight;
-            button9.Font = new Font("Arial Narrow", 24F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            button9.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Italic, GraphicsUnit.Point, 0);
             button9.ForeColor = SystemColors.ButtonHighlight;
-            button9.Location = new Point(1329, 607);
+            button9.Location = new Point(1337, 619);
             button9.Name = "button9";
-            button9.Size = new Size(41, 62);
+            button9.Size = new Size(43, 49);
             button9.TabIndex = 1;
             button9.Text = "?";
             button9.UseVisualStyleBackColor = false;
@@ -230,7 +230,7 @@
             // 
             // ProjectSort
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(199, 210, 242);
             ClientSize = new Size(1382, 669);
@@ -251,7 +251,7 @@
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Font = new Font("Monotype Corsiva", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
             Name = "ProjectSort";
             Text = "s";
             ResumeLayout(false);
