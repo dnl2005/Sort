@@ -47,7 +47,6 @@
             label1.Size = new Size(1296, 74);
             label1.TabIndex = 0;
             label1.Text = "1)Сортировка пузырьком — это простой алгоритм сортировки, который последовательно\r\n сравнивает пары соседних элементов в массиве и обменивает их местами.";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -58,7 +57,6 @@
             label2.Size = new Size(1415, 74);
             label2.TabIndex = 1;
             label2.Text = "2)Сортировка вставками— этоалгоритмов сортировки, который строит отсортированный массив \r\nпоэтапно, добавляя один элемент за раз.";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -69,7 +67,6 @@
             label3.Size = new Size(1329, 111);
             label3.TabIndex = 2;
             label3.Text = resources.GetString("label3.Text");
-            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -80,7 +77,6 @@
             label4.Size = new Size(1308, 74);
             label4.TabIndex = 3;
             label4.Text = "4)Сортировка «черпаками» с N = 3 Мы можем проанализировать массив элементов, и в \r\nзависимости от их факторов размещать в соответствующее  части ";
-            label4.Click += label4_Click;
             // 
             // label5
             // 
@@ -91,7 +87,6 @@
             label5.Size = new Size(1217, 74);
             label5.TabIndex = 4;
             label5.Text = "5)Сортировка «черпаками» с N = 4 по сути тоже самое что сортировки n=3 и n=2 \r\nпросто больше услови";
-            label5.Click += label5_Click;
             // 
             // label6
             // 
@@ -102,7 +97,6 @@
             label6.Size = new Size(1443, 111);
             label6.TabIndex = 5;
             label6.Text = "6)Сортировка слиянием— это алгоритм разделяет массив на две половины,рекурсивно сортирует \r\nкаждую из половин, а затем объединяет (сливает) отсортированные \r\nполовины в один отсортированный массив.";
-            label6.Click += label6_Click;
             // 
             // label7
             // 
@@ -130,7 +124,6 @@
             Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Italic);
             Name = "TermsOfUse";
             Text = "TermsOfUse";
-            Load += Spravka_Load;
             ResumeLayout(false);
             PerformLayout();
         }
