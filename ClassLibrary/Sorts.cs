@@ -5,8 +5,6 @@
     /// </summary>
     public class Sorts
     {
-        // Пример массива для сортировки
-        int[] nums = { 3, 4, 1, 76, 32, 8, 236, 98, 23, 78, 34, 9, 437, 236, 8, 4, 9 };
 
         /// <summary>
         /// Меняет местами два элемента массива
@@ -30,9 +28,9 @@
         /// если они находятся в неправильном порядке. Процесс повторяется, пока массив не будет отсортирован.
         /// Сложность: O(n^2) в худшем случае.
         /// </remarks>
-        static public int[] BubbleSort(int[] nums)
+        static public List <int> BubbleSort(List <int> nums)
         {
-            var len = nums.Length;
+            var len = nums.Count();
             for (var i = 1; i < len; i++)
             {
                 for (var j = 0; j < len - i; j++)
@@ -57,7 +55,7 @@
         /// вставляя каждый новый элемент в правильную позицию среди уже отсортированных элементов.
         /// Сложность: O(n^2) в худшем случае, O(n) в лучшем (для почти отсортированных массивов).
         /// </remarks>
-        static public int[] InsertionSort(int[] nums)
+        static public List<int> InsertionSort(List <int> nums)
         {
             for (var i = 1; i < nums.Length; i++)
             {
@@ -84,7 +82,7 @@
         /// затем отсортированные части сливаются в один массив.
         /// Сложность: O(n log n) в любом случае.
         /// </remarks>
-        static public int[] MergeSort(int[] nums)
+        static public List<int> MergeSort(List <int> nums)
         {
             if (nums.Length <= 1)
                 return nums;
@@ -112,7 +110,7 @@
         /// <param name="left">Левый отсортированный список</param>
         /// <param name="right">Правый отсортированный список</param>
         /// <returns>Объединенный отсортированный массив</returns>
-        private static int[] Merge(List<int> left, List<int> right)
+        private static List<int> Merge(List<int> left, List<int> right)
         {
             var result = new List<int>();
 
@@ -142,7 +140,7 @@
                 right.RemoveAt(0);
             }
 
-            return result.ToArray();
+            return result;
         }
 
         /// <summary>
@@ -159,7 +157,7 @@
         /// затем каждая часть сортируется рекурсивно.
         /// Сложность: O(n log n) в среднем, O(n^2) в худшем случае.
         /// </remarks>
-        private static int[] QuickSort(int[] nums, int left, int right)
+        private static List<int> QuickSort(List <int> nums, int left, int right)
         {
             if (left < right)
             {
@@ -177,7 +175,7 @@
         /// <param name="left">Левая граница</param>
         /// <param name="right">Правая граница</param>
         /// <returns>Индекс опорного элемента</returns>
-        private static int Partition(int[] nums, int left, int right)
+        private static List<int> Partition(List <int> nums, int left, int right)
         {
             var pivot = nums[right];
             var i = left;
