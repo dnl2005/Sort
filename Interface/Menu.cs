@@ -23,7 +23,7 @@ namespace Interface
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            new Taskform("Пузырьковая сортировка").ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)

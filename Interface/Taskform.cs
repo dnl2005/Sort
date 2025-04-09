@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,22 @@ namespace Interface
 {
     public partial class Taskform : Form
     {
-        public Taskform()
+        private string taskName;
+
+
+        public TaskForm(string taskName)
         {
             InitializeComponent();
+            this.taskName = taskName;
+            label4.Text = taskName;
+        }
+        private void TaskForm_Load(object sender, EventArgs e)
+        {
+            label1.Anchor = AnchorStyles.None;
+            label1.Location = new Point(
+                (ClientSize.Width - label1.Width) / 2,
+                30
+            );
         }
     }
 }
