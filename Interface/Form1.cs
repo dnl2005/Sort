@@ -23,7 +23,7 @@ namespace Interface
 
         private void button2_Click(object sender, EventArgs e)
         {
-                
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -35,60 +35,11 @@ namespace Interface
         {
 
         }
-        /// <summary>
-        /// Метод для выбора и чтения файла
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            fileContent.Clear(); // очистка старого списка, если выбран новый файл
-            string filePath; //путь к файлу
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "c:\\"; // папка с которой начинается выбор
-                openFileDialog.Filter = "Текстовые файлы .txt|*.txt"; // фильтр файлов
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // получение пути к файлу
-                        filePath = openFileDialog.FileName;
-                        // чтение файла
-                        using (StreamReader reader = new StreamReader(openFileDialog.FileName))
-                        {
-                            string line;
-                            List<int> lineContent = new List<int>(); // список для чисел текущей строки
-                            while ( (line = reader.ReadLine()) != null)
-                            {
-                                // разбиваем line на подстроки, преобразуем в тип int
-                                // и добавляем в lineContent
-                                lineContent.AddRange(line.Split(",").Select(s => int.Parse(s)));
-                                fileContent.AddRange(lineContent);
-                                lineContent.Clear();
-                            }
-                        }
-                        if (fileContent.Count==0)
-                        {
-                            throw new Exception("Выбранный файл пуст");
-                        }
-                    }
-                    catch (IOException)
-                    {
-                        MessageBox.Show("Ошибка чтения выбранного файла.");
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show("Некорректные данные для сортировки в выбранном файле.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Файл пуст");
-                    }
-                }
-            }
-            
+        private void ProjectSort_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
+
