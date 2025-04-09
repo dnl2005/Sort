@@ -1,11 +1,11 @@
-﻿namespace ClassLibrary
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ClassLibrary
 {
-    /// <summary>
-    /// Класс, содержащий различные алгоритмы сортировки массивов
-    /// </summary>
     public class Sorts
     {
-
         /// <summary>
         /// Меняет местами два элемента массива
         /// </summary>
@@ -28,9 +28,9 @@
         /// если они находятся в неправильном порядке. Процесс повторяется, пока массив не будет отсортирован.
         /// Сложность: O(n^2) в худшем случае.
         /// </remarks>
-        static public List <int> BubbleSort(List <int> nums)
+        static public int[] BubbleSort(int[] nums)
         {
-            var len = nums.Count();
+            var len = nums.Length;
             for (var i = 1; i < len; i++)
             {
                 for (var j = 0; j < len - i; j++)
@@ -55,7 +55,7 @@
         /// вставляя каждый новый элемент в правильную позицию среди уже отсортированных элементов.
         /// Сложность: O(n^2) в худшем случае, O(n) в лучшем (для почти отсортированных массивов).
         /// </remarks>
-        static public List<int> InsertionSort(List <int> nums)
+        static public int[] InsertionSort(int[] nums)
         {
             for (var i = 1; i < nums.Length; i++)
             {
@@ -82,7 +82,7 @@
         /// затем отсортированные части сливаются в один массив.
         /// Сложность: O(n log n) в любом случае.
         /// </remarks>
-        static public List<int> MergeSort(List <int> nums)
+        static public int[] MergeSort(int[] nums)
         {
             if (nums.Length <= 1)
                 return nums;
@@ -101,7 +101,7 @@
             left = MergeSort(left.ToArray()).ToList();
             right = MergeSort(right.ToArray()).ToList();
 
-            return Merge(left, right);
+            return Merge(left.ToArray(), right.ToArray());
         }
 
         /// <summary>
@@ -110,37 +110,39 @@
         /// <param name="left">Левый отсортированный список</param>
         /// <param name="right">Правый отсортированный список</param>
         /// <returns>Объединенный отсортированный массив</returns>
-        private static List<int> Merge(List<int> left, List<int> right)
+        private static int[] Merge(int[] left, int[] right)
         {
             var result = new List<int>();
+            var leftList = left.ToList();
+            var rightList = right.ToList();
 
-            while (left.Count > 0 && right.Count > 0)
+            while (leftList.Count > 0 && rightList.Count > 0)
             {
-                if (left[0] <= right[0])
+                if (leftList[0] <= rightList[0])
                 {
-                    result.Add(left[0]);
-                    left.RemoveAt(0);
+                    result.Add(leftList[0]);
+                    leftList.RemoveAt(0);
                 }
                 else
                 {
-                    result.Add(right[0]);
-                    right.RemoveAt(0);
+                    result.Add(rightList[0]);
+                    rightList.RemoveAt(0);
                 }
             }
 
-            while (left.Count > 0)
+            while (leftList.Count > 0)
             {
-                result.Add(left[0]);
-                left.RemoveAt(0);
+                result.Add(leftList[0]);
+                leftList.RemoveAt(0);
             }
 
-            while (right.Count > 0)
+            while (rightList.Count > 0)
             {
-                result.Add(right[0]);
-                right.RemoveAt(0);
+                result.Add(rightList[0]);
+                rightList.RemoveAt(0);
             }
 
-            return result;
+            return result.ToArray();
         }
 
         /// <summary>
@@ -157,7 +159,7 @@
         /// затем каждая часть сортируется рекурсивно.
         /// Сложность: O(n log n) в среднем, O(n^2) в худшем случае.
         /// </remarks>
-        private static List<int> QuickSort(List <int> nums, int left, int right)
+        public static int[] QuickSort(int[] nums, int left, int right)
         {
             if (left < right)
             {
@@ -175,7 +177,7 @@
         /// <param name="left">Левая граница</param>
         /// <param name="right">Правая граница</param>
         /// <returns>Индекс опорного элемента</returns>
-        private static List<int> Partition(List <int> nums, int left, int right)
+        private static int Partition(int[] nums, int left, int right)
         {
             var pivot = nums[right];
             var i = left;
@@ -205,6 +207,9 @@
         /// </remarks>
         public static int[] BucketSort(int[] array)
         {
+            if (array == null || array.Length == 0)
+                return array;
+
             // Находим минимальное и максимальное значения
             int minValue = array[0];
             int maxValue = array[0];
@@ -213,6 +218,10 @@
                 if (array[i] < minValue) minValue = array[i];
                 if (array[i] > maxValue) maxValue = array[i];
             }
+
+            // Если все элементы одинаковые, возвращаем массив как есть
+            if (minValue == maxValue)
+                return array;
 
             // Создаем черпаки (ведра)
             int bucketCount = array.Length;
@@ -228,17 +237,13 @@
             }
 
             // Собираем результат
-            var result = new int[array.Length];
-            int index = 0;
+            var result = new List<int>();
             for (int i = 0; i < bucketCount; i++)
             {
                 buckets[i].Sort();
-                foreach (var item in buckets[i])
-                {
-                    result[index++] = item;
-                }
+                result.AddRange(buckets[i]);
             }
-            return result;
+            return result.ToArray();
         }
 
         /// <summary>
@@ -266,7 +271,7 @@
                 else
                 {
                     // Меняем местами элементы
-                    (array[left], array[right]) = (array[right], array[left]);
+                    Swap(ref array[left], ref array[right]);
                     right--;
                 }
             }
@@ -293,7 +298,7 @@
                 switch (array[mid])
                 {
                     case 0: // Белый
-                        (array[low], array[mid]) = (array[mid], array[low]);
+                        Swap(ref array[low], ref array[mid]);
                         low++;
                         mid++;
                         break;
@@ -301,7 +306,7 @@
                         mid++;
                         break;
                     case 2: // Красный
-                        (array[mid], array[high]) = (array[high], array[mid]);
+                        Swap(ref array[mid], ref array[high]);
                         high--;
                         break;
                 }
@@ -332,14 +337,14 @@
                 switch (array[third])
                 {
                     case 0: // Гриффиндор
-                        (array[first], array[third]) = (array[third], array[first]);
-                        if (first < second) (array[second], array[third]) = (array[third], array[second]);
+                        Swap(ref array[first], ref array[third]);
+                        if (first < second) Swap(ref array[second], ref array[third]);
                         first++;
                         second++;
                         third++;
                         break;
                     case 1: // Слизерин
-                        (array[second], array[third]) = (array[third], array[second]);
+                        Swap(ref array[second], ref array[third]);
                         second++;
                         third++;
                         break;
@@ -347,7 +352,7 @@
                         third++;
                         break;
                     case 3: // Пуффендуй
-                        (array[third], array[fourth]) = (array[fourth], array[third]);
+                        Swap(ref array[third], ref array[fourth]);
                         fourth--;
                         break;
                 }
