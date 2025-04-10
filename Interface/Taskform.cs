@@ -11,18 +11,15 @@ namespace Interface
             InitializeComponent();
             this.taskName = taskName;
             label4.Text = "Выбрано: " + taskName;
-            // 1. Установите эти свойства для Label (можно в дизайнере)
             label4.AutoSize = true;
             label4.Anchor = AnchorStyles.None;
             label4.TextAlign = ContentAlignment.MiddleCenter;
 
-
-            // 3. В конструкторе формы или при загрузке:
             CenterLabel();
             this.Resize += (s, e) => CenterLabel();
         }
-
-        // 2. Этот метод центрирует текст
+        
+        //метод для центрирования текста с выбором способа сортировки
         private void CenterLabel()
         {
             label4.Left = (this.ClientSize.Width - label4.Width) / 2;
