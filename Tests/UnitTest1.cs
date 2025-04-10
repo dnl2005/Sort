@@ -18,28 +18,22 @@ namespace Tests
         [TestMethod]
         public void InsertionSort_ShouldSortList()
         {
-            var unsortedList = new List<int>(_unsortedArray);
-            var sortedList = new List<int>(_sortedArray);
-            var result = Sorts.InsertionSort(unsortedList);
-            CollectionAssert.AreEqual(sortedList, result);
+            var result = Sorts.InsertionSort(_unsortedArray);
+            CollectionAssert.AreEqual(_sortedArray, result);
         }
 
         [TestMethod]
         public void MergeSort_ShouldSortList()
         {
-            var unsortedList = new List<int>(_unsortedArray);
-            var sortedList = new List<int>(_sortedArray);
-            var result = Sorts.MergeSort(unsortedList);
-            CollectionAssert.AreEqual(sortedList, result);
+            var result = Sorts.MergeSort(_unsortedArray);
+            CollectionAssert.AreEqual(_sortedArray, result);
         }
 
         [TestMethod]
         public void QuickSort_ShouldSortList()
         {
-            var unsortedList = new List<int>(_unsortedArray);
-            var sortedList = new List<int>(_sortedArray);
-            Sorts.QuickSort(unsortedList, 0, unsortedList.Count - 1);
-            CollectionAssert.AreEqual(sortedList, unsortedList);
+            var result = Sorts.QuickSort(_unsortedArray, 0, _unsortedArray.Length - 1);
+            CollectionAssert.AreEqual(result, _sortedArray);
         }
 
         [TestMethod]
