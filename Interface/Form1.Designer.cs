@@ -38,12 +38,12 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
-            label7 = new Label();
             button6 = new Button();
             label8 = new Label();
             button7 = new Button();
             button8 = new Button();
             button9 = new Button();
+            button10 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -65,7 +65,6 @@
             button1.TabIndex = 1;
             button1.Text = "Выбрать файл";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // label3
             // 
@@ -151,20 +150,10 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic);
-            label7.Location = new Point(532, 253);
-            label7.Name = "label7";
-            label7.Size = new Size(335, 44);
-            label7.TabIndex = 2;
-            label7.Text = "Сортировка черпаками";
-            // 
             // button6
             // 
             button6.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            button6.Location = new Point(338, 371);
+            button6.Location = new Point(357, 347);
             button6.Name = "button6";
             button6.Size = new Size(189, 52);
             button6.TabIndex = 1;
@@ -176,7 +165,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
-            label8.Location = new Point(388, 297);
+            label8.Location = new Point(386, 273);
             label8.Name = "label8";
             label8.Size = new Size(594, 41);
             label8.TabIndex = 2;
@@ -185,24 +174,24 @@
             // button7
             // 
             button7.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            button7.Location = new Point(858, 371);
+            button7.Location = new Point(836, 347);
             button7.Name = "button7";
             button7.Size = new Size(189, 52);
             button7.TabIndex = 1;
             button7.Text = "4";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += button6_Click;
+            button7.Click += button7_Click;
             // 
             // button8
             // 
             button8.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            button8.Location = new Point(598, 371);
+            button8.Location = new Point(596, 347);
             button8.Name = "button8";
             button8.Size = new Size(189, 52);
             button8.TabIndex = 1;
             button8.Text = "3";
             button8.UseVisualStyleBackColor = true;
-            button8.Click += button6_Click;
+            button8.Click += button8_Click;
             // 
             // button9
             // 
@@ -215,7 +204,17 @@
             button9.TabIndex = 1;
             button9.Text = "?";
             button9.UseVisualStyleBackColor = false;
-            button9.Click += button5_Click;
+            // 
+            // button10
+            // 
+            button10.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button10.Location = new Point(515, 434);
+            button10.Name = "button10";
+            button10.Size = new Size(346, 82);
+            button10.TabIndex = 3;
+            button10.Text = "Сортировка черпаками";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // ProjectSort
             // 
@@ -223,9 +222,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(199, 210, 242);
             ClientSize = new Size(1382, 669);
+            Controls.Add(button10);
             Controls.Add(label5);
             Controls.Add(label8);
-            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -258,11 +257,11 @@
         private Button button3;
         private Button button4;
         private Button button5;
-        private Label label7;
         private Button button6;
         private Label label8;
         private Button button7;
         private Button button8;
         private Button button9;
+        private Button button10;
     }
 }

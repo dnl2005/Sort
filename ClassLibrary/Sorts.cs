@@ -232,7 +232,7 @@
         /// Работает за один проход по массиву.
         /// Сложность: O(n).
         /// </remarks>
-        public static void TwoWayPartition(int[] array, int pivot)
+        public static int[] TwoWayPartition(int[] array, int pivot)
         {
             int left = 0;
             int right = array.Length - 1;
@@ -250,6 +250,7 @@
                     right--;
                 }
             }
+            return array;
         }
 
         /// <summary>
@@ -261,7 +262,7 @@
         /// за один проход по массиву с постоянной дополнительной памятью.
         /// Сложность: O(n).
         /// </remarks>
-        public static void DutchFlagSort(int[] array)
+        public static int[] DutchFlagSort(int[] array)
         {
             int low = 0;    // Указатель для 0 (конец первой группы)
             int mid = 0;     // Указатель для 1 (текущий элемент)
@@ -286,6 +287,8 @@
                         break;
                 }
             }
+
+            return array;
         }
 
         /// <summary>
@@ -297,7 +300,7 @@
         /// представляющих факультеты Хогвартса, за один проход по массиву.
         /// Сложность: O(n).
         /// </remarks>
-        public static void HogwartsHat(int[] array)
+        public static int[] HogwartsHat(int[] array)
         {
             // Предполагаем, что дома Хогвартса представлены числами 0-3:
             // 0 - Гриффиндор, 1 - Слизерин, 2 - Когтевран, 3 - Пуффендуй
@@ -332,6 +335,7 @@
                         break;
                 }
             }
+            return array;
         }
     }
 }
