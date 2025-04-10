@@ -40,9 +40,9 @@
             label7 = new Label();
             button6 = new Button();
             label8 = new Label();
-            button7 = new Button();
-            button8 = new Button();
             button9 = new Button();
+            button1 = new Button();
+            button7 = new Button();
             SuspendLayout();
             // 
             // label2
@@ -104,7 +104,7 @@
             button2.TabIndex = 1;
             button2.Text = "Сортировка\r\nпузырьком";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += this.button2_Click;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -115,7 +115,7 @@
             button3.TabIndex = 1;
             button3.Text = "Сортировка\r\nслиянием\r\n";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += this.button3_Click;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -126,7 +126,7 @@
             button4.TabIndex = 1;
             button4.Text = "Сортировка\r\nвставкой\r\n";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += this.button4_Click;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -137,7 +137,7 @@
             button5.TabIndex = 1;
             button5.Text = "Быстрая сортировка";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += this.button5_Click;
+            button5.Click += button5_Click;
             // 
             // label7
             // 
@@ -158,7 +158,7 @@
             button6.TabIndex = 1;
             button6.Text = "2";
             button6.UseVisualStyleBackColor = true;
-            button6.Click += this.button6_Click;
+            button6.Click += button6_Click;
             // 
             // label8
             // 
@@ -169,28 +169,6 @@
             label8.Size = new Size(727, 51);
             label8.TabIndex = 2;
             label8.Text = "Число различных элементов для сортировки";
-            // 
-            // button7
-            // 
-            button7.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic);
-            button7.Location = new Point(840, 371);
-            button7.Name = "button7";
-            button7.Size = new Size(189, 52);
-            button7.TabIndex = 1;
-            button7.Text = "4";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += this.button6_Click;
-            // 
-            // button8
-            // 
-            button8.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic);
-            button8.Location = new Point(598, 371);
-            button8.Name = "button8";
-            button8.Size = new Size(189, 52);
-            button8.TabIndex = 1;
-            button8.Text = "3";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += this.button6_Click;
             // 
             // button9
             // 
@@ -203,7 +181,29 @@
             button9.TabIndex = 1;
             button9.Text = "?";
             button9.UseVisualStyleBackColor = false;
-            button9.Click += this.button5_Click;
+            button9.Click += button5_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic);
+            button1.Location = new Point(599, 371);
+            button1.Name = "button1";
+            button1.Size = new Size(189, 52);
+            button1.TabIndex = 3;
+            button1.Text = "3";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button7
+            // 
+            button7.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic);
+            button7.Location = new Point(842, 371);
+            button7.Name = "button7";
+            button7.Size = new Size(189, 52);
+            button7.TabIndex = 4;
+            button7.Text = "4";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click_1;
             // 
             // ProjectSort
             // 
@@ -211,6 +211,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(199, 210, 242);
             ClientSize = new Size(1382, 669);
+            Controls.Add(button7);
+            Controls.Add(button1);
             Controls.Add(label5);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -222,8 +224,6 @@
             Controls.Add(button3);
             Controls.Add(button4);
             Controls.Add(button2);
-            Controls.Add(button7);
-            Controls.Add(button8);
             Controls.Add(button6);
             Controls.Add(label2);
             Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
@@ -247,8 +247,8 @@
         private Label label7;
         private Button button6;
         private Label label8;
-        private Button button7;
-        private Button button8;
         private Button button9;
+        private Button button1;
+        private Button button7;
     }
 }

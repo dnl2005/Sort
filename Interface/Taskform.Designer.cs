@@ -41,7 +41,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label3.Location = new Point(145, 107);
+            label3.Location = new Point(161, 105);
             label3.Name = "label3";
             label3.Size = new Size(661, 54);
             label3.TabIndex = 3;
@@ -50,18 +50,19 @@
             // button2
             // 
             button2.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            button2.Location = new Point(326, 264);
+            button2.Location = new Point(355, 262);
             button2.Name = "button2";
             button2.Size = new Size(270, 106);
             button2.TabIndex = 6;
             button2.Text = "Выполнить\r\nсортировку\r\n";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label1.Location = new Point(187, 383);
+            label1.Location = new Point(215, 381);
             label1.Name = "label1";
             label1.Size = new Size(566, 54);
             label1.TabIndex = 7;
@@ -69,7 +70,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(145, 440);
+            textBox2.Location = new Point(173, 438);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
             textBox2.ScrollBars = ScrollBars.Horizontal;
@@ -79,13 +80,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(145, 176);
+            textBox1.Location = new Point(173, 173);
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.ScrollBars = ScrollBars.Horizontal;
             textBox1.Size = new Size(639, 62);
             textBox1.TabIndex = 9;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 
@@ -105,6 +107,7 @@
             label4.Size = new Size(584, 54);
             label4.TabIndex = 11;
             label4.Text = "*Выбранный споосб сортировки*";
+            label4.TextAlign = ContentAlignment.TopCenter;
             // 
             // Taskform
             // 
