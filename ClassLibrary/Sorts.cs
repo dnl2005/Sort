@@ -11,11 +11,9 @@
         /// </summary>
         /// <param name="e1">Первый элемент</param>
         /// <param name="e2">Второй элемент</param>
-        static void Swap(ref int e1, ref int e2)
+        public static void Swap(ref int e1, ref int e2)
         {
-            var temp = e1;
-            e1 = e2;
-            e2 = temp;
+            (e2, e1) = (e1, e2);
         }
 
         /// <summary>
@@ -28,19 +26,13 @@
         /// если они находятся в неправильном порядке. Процесс повторяется, пока массив не будет отсортирован.
         /// Сложность: O(n^2) в худшем случае.
         /// </remarks>
-        static public List <int> BubbleSort(List <int> nums)
+        public static int[] BubbleSort(int[] nums)
         {
             var len = nums.Count();
             for (var i = 1; i < len; i++)
-            {
                 for (var j = 0; j < len - i; j++)
-                {
                     if (nums[j] > nums[j + 1])
-                    {
                         Swap(ref nums[j], ref nums[j + 1]);
-                    }
-                }
-            }
 
             return nums;
         }
@@ -55,9 +47,9 @@
         /// вставляя каждый новый элемент в правильную позицию среди уже отсортированных элементов.
         /// Сложность: O(n^2) в худшем случае, O(n) в лучшем (для почти отсортированных массивов).
         /// </remarks>
-        static public List<int> InsertionSort(List <int> nums)
+        public static List<int> InsertionSort(List <int> nums)
         {
-            for (var i = 1; i < nums.Length; i++)
+            for (var i = 1; i < nums.Count; i++)
             {
                 var key = nums[i];
                 var j = i;
@@ -82,24 +74,24 @@
         /// затем отсортированные части сливаются в один массив.
         /// Сложность: O(n log n) в любом случае.
         /// </remarks>
-        static public List<int> MergeSort(List <int> nums)
+        public static List<int> MergeSort(List <int> nums)
         {
-            if (nums.Length <= 1)
+            if (nums.Count <= 1)
                 return nums;
 
             var left = new List<int>();
             var right = new List<int>();
 
-            for (int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Count; i++)
             {
-                if (i < nums.Length / 2)
+                if (i < nums.Count / 2)
                     left.Add(nums[i]);
                 else
                     right.Add(nums[i]);
             }
 
-            left = MergeSort(left.ToArray()).ToList();
-            right = MergeSort(right.ToArray()).ToList();
+            left = [.. MergeSort(left)];
+            right = [.. MergeSort(right)];
 
             return Merge(left, right);
         }
@@ -110,7 +102,7 @@
         /// <param name="left">Левый отсортированный список</param>
         /// <param name="right">Правый отсортированный список</param>
         /// <returns>Объединенный отсортированный массив</returns>
-        private static List<int> Merge(List<int> left, List<int> right)
+        public static List<int> Merge(List<int> left, List<int> right)
         {
             var result = new List<int>();
 
@@ -157,15 +149,14 @@
         /// затем каждая часть сортируется рекурсивно.
         /// Сложность: O(n log n) в среднем, O(n^2) в худшем случае.
         /// </remarks>
-        private static List<int> QuickSort(List <int> nums, int left, int right)
+        public static void QuickSort(List<int> list, int left, int right)
         {
             if (left < right)
             {
-                var pivotIndex = Partition(nums, left, right);
-                QuickSort(nums, left, pivotIndex - 1);
-                QuickSort(nums, pivotIndex + 1, right);
+                int pivotIndex = Partition(list, left, right);
+                QuickSort(list, left, pivotIndex - 1);
+                QuickSort(list, pivotIndex + 1, right);
             }
-            return nums;
         }
 
         /// <summary>
@@ -175,20 +166,20 @@
         /// <param name="left">Левая граница</param>
         /// <param name="right">Правая граница</param>
         /// <returns>Индекс опорного элемента</returns>
-        private static List<int> Partition(List <int> nums, int left, int right)
+        public static int Partition(List<int> nums, int left, int right)
         {
             var pivot = nums[right];
-            var i = left;
+            var i = left - 1;
             for (var j = left; j < right; j++)
             {
                 if (nums[j] < pivot)
                 {
-                    Swap(ref nums[i], ref nums[j]);
                     i++;
+                    (nums[i], nums[j]) = (nums[j], nums[i]);
                 }
             }
-            Swap(ref nums[i], ref nums[right]);
-            return i;
+            (nums[i + 1], nums[right]) = (nums[right], nums[i + 1]);
+            return i + 1;
         }
 
         /// <summary>
