@@ -1,4 +1,4 @@
-﻿using ClassLibrary;
+﻿//using ClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ namespace Interface
         private string taskName;
 
 
-        public TaskForm(string taskName)
+        public Taskform(string taskName)
         {
             InitializeComponent();
             this.taskName = taskName;

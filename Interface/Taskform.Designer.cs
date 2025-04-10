@@ -121,7 +121,6 @@
             Controls.Add(label3);
             Name = "Taskform";
             Text = "Taskform";
-            Load += Taskform_Load;
             ResumeLayout(false);
             PerformLayout();
         }
