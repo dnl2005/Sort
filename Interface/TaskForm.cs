@@ -72,7 +72,7 @@ namespace Interface
                         }    
                         else
                         {
-                            MessageBox.Show("В массиве должно быть только 2 уникальных числа");
+                            ShowError("В массиве должно быть только 2 уникальных числа");
                             return;
                         }
                     case "Задача Дейкстры":
@@ -84,7 +84,7 @@ namespace Interface
                         }
                         else
                         {
-                            MessageBox.Show("В массиве должно быть только 3 уникальных числа, от 0 до 2 включительно");
+                            ShowError("В массиве должно быть только 3 уникальных числа, от 0 до 2 включительно");
                             return;
                         }
                     case "Сортировочная шляпа":
@@ -96,7 +96,7 @@ namespace Interface
                         }
                         else
                         {
-                            MessageBox.Show("В массиве должно быть только 4 уникальных числа, от 0 до 3 включительно");
+                            ShowError("В массиве должно быть только 4 уникальных числа, от 0 до 3 включительно");
                             return;
                         }
                 }
@@ -104,7 +104,7 @@ namespace Interface
             }
             else
             {
-                MessageBox.Show("Введите корректный масив чисел для сортировки. См. справку");
+                ShowError("Введите корректный масив чисел для сортировки. См. справку");
             }
         }
 
@@ -183,6 +183,11 @@ namespace Interface
             {
                 return null;
             }
+        }
+        static private void ShowError(string err)
+        {
+            ErrorMsg f3 = new ErrorMsg(err);
+            f3.ShowDialog();
         }
     }
 }
