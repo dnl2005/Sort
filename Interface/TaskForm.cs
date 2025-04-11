@@ -43,6 +43,7 @@ namespace Interface
         private void button1_Click(object sender, EventArgs e)
         {
             int[] numbers = StringToArray();
+
             if (numbers != null)
             {
                 switch (taskName)
@@ -63,14 +64,41 @@ namespace Interface
                         numbers = Sorts.BucketSort(numbers);
                         break;
                     case "сортировка Хоара":
-                        numbers = Sorts.TwoWayPartition(numbers, numbers.Length / 2);
-                        break;
+                        bool isUnic = CheckOnUnic(numbers, 2);
+                        if(isUnic)
+                        {
+                            numbers = Sorts.TwoWayPartition(numbers);
+                            break;
+                        }    
+                        else
+                        {
+                            MessageBox.Show("В массиве должно быть только 2 уникальных числа");
+                            return;
+                        }
                     case "Задача Дейкстры":
-                        numbers = Sorts.DutchFlagSort(numbers);
-                        break;
+                        isUnic = CheckOnUnic(numbers, 3);
+                        if (isUnic && Greaters(numbers, 3) && !isNegative(numbers))
+                        {
+                            numbers = Sorts.DutchFlagSort(numbers);
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("В массиве должно быть только 3 уникальных числа, от 0 до 2 включительно");
+                            return;
+                        }
                     case "Сортировочная шляпа":
-                        numbers = Sorts.HogwartsHat(numbers);
-                        break;
+                        isUnic = CheckOnUnic(numbers, 4);
+                        if (isUnic && Greaters(numbers, 4) && !isNegative(numbers))
+                        {
+                            numbers = Sorts.HogwartsHat(numbers);
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("В массиве должно быть только 4 уникальных числа, от 0 до 3 включительно");
+                            return;
+                        }
                 }
                 PrintArray(numbers);
             }
@@ -78,6 +106,46 @@ namespace Interface
             {
                 MessageBox.Show("Введите корректный масив чисел для сортировки. См. справку");
             }
+        }
+
+        public static bool isNegative(int[] numbers)
+        {
+            if (numbers == null)
+            {
+                throw new ArgumentNullException(nameof(numbers), "Массив не может быть null.");
+            }
+
+            foreach (int number in numbers)
+            {
+                if (number < 0)
+                {
+                    return true; // Найдено отрицательное число
+                }
+            }
+
+            return false; // Отрицательных чисел нет
+        }
+
+        public static bool Greaters(int[] array, int digit)
+        {
+            if (array == null || array.Length == 0)
+                return false;
+
+            foreach (int num in array)
+            {
+                if (num >= digit)
+                    return false;
+            }
+
+            return true;
+        }
+        private static bool CheckOnUnic(int[] array, int ammount)
+        {
+            if (array == null || array.Length < 2)
+                return false;
+
+            var uniqueNumbers = array.Distinct().ToArray();
+            return uniqueNumbers.Length == ammount;
         }
         private void PrintArray(int[] list)
         {

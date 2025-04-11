@@ -227,32 +227,23 @@
         /// <param name="array">Массив для разделения</param>
         /// <param name="pivot">Опорный элемент</param>
         /// <remarks>
-        /// Алгоритм разделяет массив на две части:
-        /// элементы меньше опорного и элементы больше или равные опорному.
-        /// Работает за один проход по массиву.
+        /// Через HashSet находит два уникальных элемента и сортирует их
+        /// Считает количество младших значений в массиве
+        /// Сначала заполняет все младшие значения, затем оставшиеся позиции
         /// Сложность: O(n).
         /// </remarks>
-        public static int[] TwoWayPartition(int[] array, int pivot)
+        public static int[] TwoWayPartition(int[] arr)
         {
-            int left = 0;
-            int right = array.Length - 1;
+            var unique = new HashSet<int>(arr).OrderBy(x => x).ToList();
+            int minVal = unique[0];
+            int maxVal = unique[1];
 
-            while (left <= right)
-            {
-                if (array[left] < pivot)
-                {
-                    left++;
-                }
-                else
-                {
-                    // Меняем местами элементы
-                    (array[left], array[right]) = (array[right], array[left]);
-                    right--;
-                }
-            }
-            return array;
+            int count = arr.Count(x => x == minVal);
+            Array.Fill(arr, minVal, 0, count);
+            Array.Fill(arr, maxVal, count, arr.Length - count);
+
+            return arr;
         }
-
         /// <summary>
         /// Сортировка Задачи Дейкстры
         /// </summary>
