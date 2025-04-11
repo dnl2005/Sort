@@ -49,5 +49,10 @@ namespace Interface
         {
             new TaskForm("Сортировка черпаками").ShowDialog();
         }
+
+        private void QuestionB_Click(object sender, EventArgs e)
+        {
+            new TermsOfUse().ShowDialog();
+        }
     }
 }
