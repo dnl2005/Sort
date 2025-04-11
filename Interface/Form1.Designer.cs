@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            button1 = new Button();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -55,16 +54,6 @@
             label1.Size = new Size(571, 57);
             label1.TabIndex = 0;
             label1.Text = "Проект \"Методы сортировки\"";
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            button1.Location = new Point(565, 94);
-            button1.Name = "button1";
-            button1.Size = new Size(270, 54);
-            button1.TabIndex = 1;
-            button1.Text = "Выбрать файл";
-            button1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -237,7 +226,6 @@
             Controls.Add(button7);
             Controls.Add(button8);
             Controls.Add(button6);
-            Controls.Add(button1);
             Controls.Add(label1);
             Font = new Font("Monotype Corsiva", 9F, FontStyle.Italic, GraphicsUnit.Point, 204);
             Name = "ProjectSort";
@@ -249,7 +237,6 @@
         #endregion
 
         private Label label1;
-        private Button button1;
         private Label label3;
         private Label label4;
         private Label label5;
