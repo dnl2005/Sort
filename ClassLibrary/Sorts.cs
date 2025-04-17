@@ -1,4 +1,9 @@
-﻿namespace ClassLibrary
+﻿
+using System;
+using System.CodeDom.Compiler;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace ClassLibrary
 {
     /// <summary>
     /// Класс, содержащий различные алгоритмы сортировки массивов
@@ -37,6 +42,45 @@
             return nums;
         }
 
+        /// <summary>
+        /// функция генерации случайных чисел
+        /// </summary>
+        /// <param name="length">длинна массива</param>
+        /// <param name="task">спецификатор задачи, 0 - любые числа, 1 - (0,1), 2 - (0,1,2), 3 - (0,1,2,3)</param>
+        /// <returns>возвращает целочисленный массим случайных чисел</returns>
+        public static int[] genRandInt(int length, int task = 0)
+        {
+            int[] nums = new int[length];
+            Random randNum = new Random();
+            switch (task)
+            {
+                case 0://Любые числа
+                    foreach (int value in nums)
+                    {
+                        randNum.Next(0, 1000);
+                    }
+                    break;
+                case 1://0 и 1
+                    foreach (int value in nums)
+                    {
+                        randNum.Next(0, 1);
+                    }
+                    break;
+                case 2://0 1 и 2
+                    foreach (int value in nums)
+                    {
+                        randNum.Next(0, 2);
+                    }
+                    break;
+                case 3://0 1 2 и 3
+                    foreach (int value in nums)
+                    {
+                        randNum.Next(0, 3);
+                    }
+                    break;
+            }
+            return nums;
+        }
         /// <summary>
         /// Сортировка вставками (Insertion Sort)
         /// </summary>
