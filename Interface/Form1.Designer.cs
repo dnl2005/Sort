@@ -43,6 +43,7 @@
             button8 = new Button();
             QuestionB = new Button();
             button10 = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -51,7 +52,7 @@
             label1.Font = new Font("Monotype Corsiva", 36F, FontStyle.Italic, GraphicsUnit.Point, 204);
             label1.Location = new Point(411, 9);
             label1.Name = "label1";
-            label1.Size = new Size(571, 57);
+            label1.Size = new Size(709, 72);
             label1.TabIndex = 0;
             label1.Text = "Проект \"Методы сортировки\"";
             // 
@@ -61,7 +62,7 @@
             label3.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
             label3.Location = new Point(457, 151);
             label3.Name = "label3";
-            label3.Size = new Size(469, 41);
+            label3.Size = new Size(569, 51);
             label3.TabIndex = 2;
             label3.Text = "Способы сортировки по сложности";
             // 
@@ -71,7 +72,7 @@
             label4.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
             label4.Location = new Point(95, 202);
             label4.Name = "label4";
-            label4.Size = new Size(94, 41);
+            label4.Size = new Size(116, 51);
             label4.TabIndex = 2;
             label4.Text = "O(N² )";
             // 
@@ -81,7 +82,7 @@
             label5.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
             label5.Location = new Point(1080, 202);
             label5.Name = "label5";
-            label5.Size = new Size(198, 41);
+            label5.Size = new Size(243, 51);
             label5.TabIndex = 2;
             label5.Text = "O(N × Log(N))";
             // 
@@ -91,7 +92,7 @@
             label6.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
             label6.Location = new Point(658, 202);
             label6.Name = "label6";
-            label6.Size = new Size(78, 41);
+            label6.Size = new Size(96, 51);
             label6.TabIndex = 2;
             label6.Text = "O(N)";
             // 
@@ -156,7 +157,7 @@
             label8.Font = new Font("Monotype Corsiva", 25F, FontStyle.Italic);
             label8.Location = new Point(386, 273);
             label8.Name = "label8";
-            label8.Size = new Size(594, 41);
+            label8.Size = new Size(727, 51);
             label8.TabIndex = 2;
             label8.Text = "Число различных элементов для сортировки";
             // 
@@ -206,12 +207,23 @@
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(178, 32);
+            button1.Name = "button1";
+            button1.Size = new Size(168, 105);
+            button1.TabIndex = 5;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ProjectSort
             // 
-            AutoScaleDimensions = new SizeF(6F, 14F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(199, 210, 242);
             ClientSize = new Size(1385, 673);
+            Controls.Add(button1);
             Controls.Add(button10);
             Controls.Add(label5);
             Controls.Add(label8);
@@ -251,5 +263,6 @@
         private Button button8;
         private Button QuestionB;
         private Button button10;
+        private Button button1;
     }
 }

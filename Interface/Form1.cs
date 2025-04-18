@@ -5,9 +5,32 @@ namespace Interface
 {
     public partial class ProjectSort : Form
     {
+        SortResultsForm resultsForm;
+
         public ProjectSort()
         {
             InitializeComponent();
+            resultsForm = new SortResultsForm();
+            resultsForm.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SortResult result = new SortResult
+            {
+                Method = "QuickSort",
+                Complexity = "O(n log n)",
+                ElementCount = 10000,
+                TimeInSeconds = 0.1523f,
+                MemoryComplexity = "O(log n)"
+            };
+
+            // Показать форму (если скрыта)
+            if (!resultsForm.Visible)
+                resultsForm.Show();
+
+            // Добавить результат
+            resultsForm.AddSortResult(result);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -54,5 +77,7 @@ namespace Interface
         {
             new TermsOfUse().ShowDialog();
         }
+
+
     }
 }
