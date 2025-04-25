@@ -27,26 +27,27 @@ namespace Interface
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Monotype Corsiva", 28.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label8.Location = new Point(350, 30);
+            label8.Font = new Font("Monotype Corsiva", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label8.Location = new Point(473, 30);
             label8.Name = "label8";
-            label8.Size = new Size(333, 46);
+            label8.Size = new Size(353, 49);
             label8.TabIndex = 7;
             label8.Text = "Методы сортировки";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 102);
+            label1.Font = new Font("Monotype Corsiva", 22.2F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Location = new Point(91, 79);
             label1.Name = "label1";
-            label1.Size = new Size(882, 195);
+            label1.Size = new Size(1197, 810);
             label1.TabIndex = 8;
             label1.Text = resources.GetString("label1.Text");
             // 
             // TermsOfUse
             // 
             BackColor = Color.FromArgb(199, 210, 242);
-            ClientSize = new Size(1149, 337);
+            ClientSize = new Size(1335, 892);
             Controls.Add(label1);
             Controls.Add(label8);
             Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
