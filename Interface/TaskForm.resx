@@ -117,11 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>1. Выберите метод сортировки (либо отдельную задачу на сортировку)
-2. В открывшемся окне введите целые числа через запятую
-3. Нажмите кнопку 'Сортировать'
-
-Для задач "3" и "4" ввод чисел от 0 до 2 и 3 соответственно</value>
-  </data>
 </root>
