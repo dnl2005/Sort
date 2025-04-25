@@ -63,19 +63,19 @@ namespace ClassLibrary
                 case 1://0 и 1
                     for (int i = 0; i < length; i++)
                     {
-                        nums[i] = randNum.Next(0, 1);
+                        nums[i] = randNum.Next(0, 2);
                     }
                     break;
                 case 2://0 1 и 2
                     for (int i = 0; i < length; i++)
                     {
-                        nums[i] = randNum.Next(0, 2);
+                        nums[i] = randNum.Next(0, 3);
                     }
                     break;
                 case 3://0 1 2 и 3
                     for (int i = 0; i < length; i++)
                     {
-                        nums[i] = randNum.Next(0, 3);
+                        nums[i] = randNum.Next(0, 4);
                     }
                     break;
             }

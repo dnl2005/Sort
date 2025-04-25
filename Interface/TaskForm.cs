@@ -227,7 +227,22 @@ namespace Interface
                 return;
             }
 
-            textBox1.Text = PrintArray(Sorts.genRandInt(len));
+            switch (taskName)
+            {
+                case "сортировка Хоара":
+                    textBox1.Text = PrintArray(Sorts.genRandInt(len, 1));
+                    break;
+                case "Задача Дейкстры":
+                    textBox1.Text = PrintArray(Sorts.genRandInt(len, 2));
+                    break;
+                case "Сортировочная шляпа":
+                    textBox1.Text = PrintArray(Sorts.genRandInt(len, 3));
+                    break;
+                default:
+                    textBox1.Text = PrintArray(Sorts.genRandInt(len));
+                    break;
+            }
+            
         }
 
         /// <summary>
