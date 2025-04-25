@@ -55,27 +55,27 @@ namespace ClassLibrary
             switch (task)
             {
                 case 0://Любые числа
-                    foreach (int value in nums)
+                    for (int i = 0; i < length; i++)
                     {
-                        randNum.Next(0, 1000);
+                        nums[i] = randNum.Next(0, 101);
                     }
                     break;
                 case 1://0 и 1
-                    foreach (int value in nums)
+                    for (int i = 0; i < length; i++)
                     {
-                        randNum.Next(0, 1);
+                        nums[i] = randNum.Next(0, 1);
                     }
                     break;
                 case 2://0 1 и 2
-                    foreach (int value in nums)
+                    for (int i = 0; i < length; i++)
                     {
-                        randNum.Next(0, 2);
+                        nums[i] = randNum.Next(0, 2);
                     }
                     break;
                 case 3://0 1 2 и 3
-                    foreach (int value in nums)
+                    for (int i = 0; i < length; i++)
                     {
-                        randNum.Next(0, 3);
+                        nums[i] = randNum.Next(0, 3);
                     }
                     break;
             }

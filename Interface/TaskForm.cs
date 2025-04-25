@@ -14,12 +14,15 @@ namespace Interface
 {
     public partial class TaskForm : Form
     {
+        private static SortResultsForm resultsForm;
         private string taskName;
         private string input;
 
-        public TaskForm(string taskName)
+        public TaskForm(string taskName, SortResultsForm resultsFormInstance)
         {
             InitializeComponent();
+            resultsForm = resultsFormInstance;
+
             this.taskName = taskName;
             Title.Text = taskName;
             Title.AutoSize = true;
@@ -50,26 +53,32 @@ namespace Interface
                 {
                     case "Пузырьковая сортировка":
                         numbers = Sorts.BubbleSort(numbers);
+                        SetResult(numbers, "Пузырьковая сортировка", "O(n^2)", 10, "O(1)");
                         break;
                     case "Сортировка вставкой":
                         numbers = Sorts.InsertionSort(numbers);
+                        SetResult(numbers, "Сортировка вставкой", "O(n^2)", 10, "O(1)");
                         break;
                     case "Сортировка слиянием":
                         numbers = Sorts.MergeSort(numbers);
+                        SetResult(numbers, "Сортировка слиянием", "O(n log n)", 10, "O(1)");
                         break;
                     case "Быстрая сортировка":
                         numbers = Sorts.QuickSort(numbers, 0, numbers.Length - 1);
+                        SetResult(numbers, "Быстрая сортировка", "O(n lon n)", 10, "O(1)");
                         break;
                     case "Сортировка черпаками":
                         numbers = Sorts.BucketSort(numbers);
+                        SetResult(numbers, "Сортировка черпаками", "O(n)", 10, "O(1)");
                         break;
                     case "сортировка Хоара":
                         bool isUnic = CheckOnUnic(numbers, 2);
-                        if(isUnic)
+                        if (isUnic)
                         {
                             numbers = Sorts.TwoWayPartition(numbers);
+                            SetResult(numbers, "сортировка Хоара", "O(n)", 10, "O(1)");
                             break;
-                        }    
+                        }
                         else
                         {
                             ShowError("В массиве должно быть только 2 уникальных числа");
@@ -80,6 +89,7 @@ namespace Interface
                         if (isUnic && Greaters(numbers, 3) && !isNegative(numbers))
                         {
                             numbers = Sorts.DutchFlagSort(numbers);
+                            SetResult(numbers, "Задача Дейкстры", "O(n)", 10, "O(1)");
                             break;
                         }
                         else
@@ -92,6 +102,7 @@ namespace Interface
                         if (isUnic && Greaters(numbers, 4) && !isNegative(numbers))
                         {
                             numbers = Sorts.HogwartsHat(numbers);
+                            SetResult(numbers, "Сортировочная шляпа", "O(n)", 10, "O(1)");
                             break;
                         }
                         else
@@ -100,7 +111,7 @@ namespace Interface
                             return;
                         }
                 }
-                PrintArray(numbers);
+                textBox2.Text = PrintArray(numbers);
             }
             else
             {
@@ -147,7 +158,7 @@ namespace Interface
             var uniqueNumbers = array.Distinct().ToArray();
             return uniqueNumbers.Length == ammount;
         }
-        private void PrintArray(int[] list)
+        private string PrintArray(int[] list)
         {
             string output = "";
 
@@ -159,7 +170,21 @@ namespace Interface
                     output += ", ";
             }
 
-            textBox2.Text = output;
+            return output;
+        }
+
+        private static void SetResult(int[] numbers, string method, string complexity, float time, string memComplexity)
+        {
+            SortResult result = new SortResult
+            {
+                Method = method,
+                Complexity = complexity,
+                ElementCount = numbers.Length,
+                TimeInSeconds = time,
+                MemoryComplexity = memComplexity
+            };
+
+            resultsForm.AddSortResult(result);
         }
         private int[] StringToArray()
         {
@@ -188,6 +213,17 @@ namespace Interface
         {
             ErrorMsg f3 = new ErrorMsg(err);
             f3.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(!int.TryParse(arrLength.Text, out int len))
+            {
+                ShowError("Введено некорректное значение длины");
+                return;
+            }
+
+            textBox1.Text = PrintArray(Sorts.genRandInt(len));
         }
     }
 }
