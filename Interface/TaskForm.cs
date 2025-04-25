@@ -1,55 +1,44 @@
-﻿using ClassLibrary;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using Microsoft.VisualBasic;
+using ClassLibrary;
 namespace Interface
 {
-    public partial class TaskForm : Form
+    public partial class Taskform : Form
     {
         private string taskName;
         private string input;
-
-        public TaskForm(string taskName)
+        public Taskform(string taskName)
         {
             InitializeComponent();
             this.taskName = taskName;
-            Title.Text = taskName;
-            Title.AutoSize = true;
-            Title.Anchor = AnchorStyles.None;
-            Title.TextAlign = ContentAlignment.MiddleCenter;
+            label4.Text = "Выбрано: " + taskName;
+            label4.AutoSize = true;
+            label4.Anchor = AnchorStyles.None;
+            label4.TextAlign = ContentAlignment.MiddleCenter;
 
-            CenterTitle();
-            this.Resize += (s, e) => CenterTitle();
+            CenterLabel();
+            this.Resize += (s, e) => CenterLabel();
         }
-
-        private void CenterTitle()
+        
+        //метод для центрирования текста с выбором способа сортировки
+        private void CenterLabel()
         {
-            Title.Left = (this.ClientSize.Width - Title.Width) / 2;
+            label4.Left = (this.ClientSize.Width - label4.Width) / 2;
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             input = textBox1.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             int[] numbers = StringToArray();
-
             if (numbers != null)
             {
                 switch (taskName)
                 {
                     case "Пузырьковая сортировка":
                         numbers = Sorts.BubbleSort(numbers);
+                        PrintArray(numbers);
                         break;
                     case "Сортировка вставкой":
                         numbers = Sorts.InsertionSort(numbers);
@@ -58,94 +47,24 @@ namespace Interface
                         numbers = Sorts.MergeSort(numbers);
                         break;
                     case "Быстрая сортировка":
-                        numbers = Sorts.QuickSort(numbers, 0, numbers.Length - 1);
+                        numbers = Sorts.QuickSort(numbers);
                         break;
-                    case "Сортировка черпаками":
-                        numbers = Sorts.BucketSort(numbers);
+                    case "Сортировка черпаками (2 элемента)":
+                        numbers = Sorts.BubbleSort(numbers);
                         break;
-                    case "сортировка Хоара":
-                        bool isUnic = CheckOnUnic(numbers, 2);
-                        if(isUnic)
-                        {
-                            numbers = Sorts.TwoWayPartition(numbers);
-                            break;
-                        }    
-                        else
-                        {
-                            ShowError("В массиве должно быть только 2 уникальных числа");
-                            return;
-                        }
-                    case "Задача Дейкстры":
-                        isUnic = CheckOnUnic(numbers, 3);
-                        if (isUnic && Greaters(numbers, 3) && !isNegative(numbers))
-                        {
-                            numbers = Sorts.DutchFlagSort(numbers);
-                            break;
-                        }
-                        else
-                        {
-                            ShowError("В массиве должно быть только 3 уникальных числа, от 0 до 2 включительно");
-                            return;
-                        }
-                    case "Сортировочная шляпа":
-                        isUnic = CheckOnUnic(numbers, 4);
-                        if (isUnic && Greaters(numbers, 4) && !isNegative(numbers))
-                        {
-                            numbers = Sorts.HogwartsHat(numbers);
-                            break;
-                        }
-                        else
-                        {
-                            ShowError("В массиве должно быть только 4 уникальных числа, от 0 до 3 включительно");
-                            return;
-                        }
+                    case "Сортировка черпаками (3 элемента)":
+                        numbers = Sorts.BubbleSort(numbers);
+                        break;
+                    case "Сортировка черпаками (4 элемента)":
+                        numbers = Sorts.BubbleSort(numbers);
+                        break;
                 }
-                PrintArray(numbers);
+
             }
             else
             {
-                ShowError("Введите корректный масив чисел для сортировки. См. справку");
+                MessageBox.Show("Введите корректный масив чисел для сортировки. См. справку");
             }
-        }
-
-        public static bool isNegative(int[] numbers)
-        {
-            if (numbers == null)
-            {
-                throw new ArgumentNullException(nameof(numbers), "Массив не может быть null.");
-            }
-
-            foreach (int number in numbers)
-            {
-                if (number < 0)
-                {
-                    return true; // Найдено отрицательное число
-                }
-            }
-
-            return false; // Отрицательных чисел нет
-        }
-
-        public static bool Greaters(int[] array, int digit)
-        {
-            if (array == null || array.Length == 0)
-                return false;
-
-            foreach (int num in array)
-            {
-                if (num >= digit)
-                    return false;
-            }
-
-            return true;
-        }
-        private static bool CheckOnUnic(int[] array, int ammount)
-        {
-            if (array == null || array.Length < 2)
-                return false;
-
-            var uniqueNumbers = array.Distinct().ToArray();
-            return uniqueNumbers.Length == ammount;
         }
         private void PrintArray(int[] list)
         {
@@ -183,11 +102,6 @@ namespace Interface
             {
                 return null;
             }
-        }
-        static private void ShowError(string err)
-        {
-            ErrorMsg f3 = new ErrorMsg(err);
-            f3.ShowDialog();
         }
     }
 }

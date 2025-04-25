@@ -1,6 +1,6 @@
 ﻿namespace Interface
 {
-    partial class TaskForm
+    partial class Taskform
     {
         /// <summary>
         /// Required designer variable.
@@ -28,102 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Title = new Label();
+            label3 = new Label();
+            button2 = new Button();
+            label1 = new Label();
+            textBox2 = new TextBox();
             textBox1 = new TextBox();
             label2 = new Label();
-            button1 = new Button();
-            label3 = new Label();
-            textBox2 = new TextBox();
+            label4 = new Label();
             SuspendLayout();
             // 
-            // Title
+            // label3
             // 
-            Title.AutoSize = true;
-            Title.Font = new Font("Monotype Corsiva", 36F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            Title.Location = new Point(422, 28);
-            Title.Name = "Title";
-            Title.Size = new Size(154, 72);
-            Title.TabIndex = 0;
-            Title.Text = "label1";
+            label3.AutoSize = true;
+            label3.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label3.Location = new Point(161, 105);
+            label3.Name = "label3";
+            label3.Size = new Size(661, 54);
+            label3.TabIndex = 3;
+            label3.Text = "Введите массив чисел для сортировки";
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            button2.Location = new Point(355, 262);
+            button2.Name = "button2";
+            button2.Size = new Size(270, 106);
+            button2.TabIndex = 6;
+            button2.Text = "Выполнить\r\nсортировку\r\n";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Location = new Point(215, 381);
+            label1.Name = "label1";
+            label1.Size = new Size(566, 54);
+            label1.TabIndex = 7;
+            label1.Text = "Отсортированный массив чисел";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(173, 438);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.ScrollBars = ScrollBars.Horizontal;
+            textBox2.Size = new Size(639, 103);
+            textBox2.TabIndex = 8;
+            textBox2.WordWrap = false;
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(275, 213);
+            textBox1.Location = new Point(173, 173);
             textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(438, 52);
-            textBox1.TabIndex = 1;
+            textBox1.ScrollBars = ScrollBars.Horizontal;
+            textBox1.Size = new Size(639, 62);
+            textBox1.TabIndex = 9;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label2.Location = new Point(265, 157);
+            label2.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label2.Location = new Point(145, 34);
             label2.Name = "label2";
-            label2.Size = new Size(506, 49);
-            label2.TabIndex = 3;
-            label2.Text = "Введите массив для сортировки";
+            label2.Size = new Size(0, 54);
+            label2.TabIndex = 10;
             // 
-            // button1
+            // label4
             // 
-            button1.Font = new Font("Monotype Corsiva", 18F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            button1.Location = new Point(399, 296);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(192, 65);
-            button1.TabIndex = 5;
-            button1.Text = "Сортировать";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            label4.AutoSize = true;
+            label4.Font = new Font("Monotype Corsiva", 27F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label4.Location = new Point(183, 34);
+            label4.Name = "label4";
+            label4.Size = new Size(584, 54);
+            label4.TabIndex = 11;
+            label4.Text = "*Выбранный споосб сортировки*";
+            label4.TextAlign = ContentAlignment.TopCenter;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            label3.Location = new Point(294, 372);
-            label3.Name = "label3";
-            label3.Size = new Size(418, 49);
-            label3.TabIndex = 6;
-            label3.Text = "Отсортированный массив";
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Monotype Corsiva", 24F, FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(275, 428);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(438, 52);
-            textBox2.TabIndex = 7;
-            // 
-            // TaskForm
+            // Taskform
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(199, 210, 242);
-            ClientSize = new Size(977, 643);
-            Controls.Add(textBox2);
-            Controls.Add(label3);
-            Controls.Add(button1);
+            ClientSize = new Size(982, 553);
+            Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(textBox1);
-            Controls.Add(Title);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "TaskForm";
-            Text = "TaskForm";
+            Controls.Add(textBox2);
+            Controls.Add(label1);
+            Controls.Add(button2);
+            Controls.Add(label3);
+            Name = "Taskform";
+            Text = "Taskform";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label Title;
+        private Label label3;
+        private Button button2;
+        private Label label1;
+        private TextBox textBox2;
         private TextBox textBox1;
         private Label label2;
-        private Button button1;
-        private Label label3;
-        private TextBox textBox2;
+        private Label label4;
     }
 }
