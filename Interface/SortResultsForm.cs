@@ -41,7 +41,7 @@ namespace Interface
             dataGridView.Columns[0].Name = "Метод сортировки";
             dataGridView.Columns[1].Name = "Сложность (O)";
             dataGridView.Columns[2].Name = "Кол-во элементов";
-            dataGridView.Columns[3].Name = "Время (сек)";
+            dataGridView.Columns[3].Name = "Время (мс)";
             dataGridView.Columns[4].Name = "Затраты по памяти";
 
             Controls.Add(dataGridView);
@@ -53,7 +53,7 @@ namespace Interface
         public void AddSortResult(SortResult result)
         {
             dataGridView.Rows.Add(result.Method, result.Complexity, result.ElementCount,
-                                  result.TimeInSeconds.ToString("F4"), result.MemoryComplexity);
+                                  result.TimeInSeconds, result.MemoryComplexity);
         }
     }
     public class SortResult

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -52,31 +53,34 @@ namespace Interface
                 switch (taskName)
                 {
                     case "Пузырьковая сортировка":
-                        numbers = Sorts.BubbleSort(numbers);
-                        SetResult(numbers, "Пузырьковая сортировка", "O(n^2)", 10, "O(1)");
+                        (numbers, TimeSpan time) = PerformAndMeasure(Sorts.BubbleSort, numbers);
+                        SetResult(numbers, "Пузырьковая сортировка", "O(n^2)", time.Milliseconds, "O(1)");
                         break;
                     case "Сортировка вставкой":
-                        numbers = Sorts.InsertionSort(numbers);
-                        SetResult(numbers, "Сортировка вставкой", "O(n^2)", 10, "O(1)");
+                        (numbers, time) = PerformAndMeasure(Sorts.InsertionSort, numbers);
+                        SetResult(numbers, "Сортировка вставкой", "O(n^2)", time.Milliseconds, "O(1)");
                         break;
                     case "Сортировка слиянием":
-                        numbers = Sorts.MergeSort(numbers);
-                        SetResult(numbers, "Сортировка слиянием", "O(n log n)", 10, "O(1)");
+                        (numbers, time) = PerformAndMeasure(Sorts.MergeSort, numbers);
+                        SetResult(numbers, "Сортировка слиянием", "O(n log n)", time.Milliseconds, "O(1)");
                         break;
                     case "Быстрая сортировка":
-                        numbers = Sorts.QuickSort(numbers, 0, numbers.Length - 1);
-                        SetResult(numbers, "Быстрая сортировка", "O(n lon n)", 10, "O(1)");
+                        (numbers, time) = PerformAndMeasure(nums =>
+                        {
+                            return Sorts.QuickSort(nums, 0, nums.Length - 1);
+                        }, numbers);
+                        SetResult(numbers, "Быстрая сортировка", "O(n lon n)", time.Milliseconds, "O(1)");
                         break;
                     case "Сортировка черпаками":
-                        numbers = Sorts.BucketSort(numbers);
-                        SetResult(numbers, "Сортировка черпаками", "O(n)", 10, "O(1)");
+                        (numbers, time) = PerformAndMeasure(Sorts.BucketSort, numbers);
+                        SetResult(numbers, "Сортировка черпаками", "O(n)", time.Milliseconds, "O(1)");
                         break;
                     case "сортировка Хоара":
                         bool isUnic = CheckOnUnic(numbers, 2);
                         if (isUnic)
                         {
-                            numbers = Sorts.TwoWayPartition(numbers);
-                            SetResult(numbers, "сортировка Хоара", "O(n)", 10, "O(1)");
+                            (numbers, time) = PerformAndMeasure(Sorts.TwoWayPartition, numbers);
+                            SetResult(numbers, "сортировка Хоара", "O(n)", time.Milliseconds, "O(1)");
                             break;
                         }
                         else
@@ -88,8 +92,8 @@ namespace Interface
                         isUnic = CheckOnUnic(numbers, 3);
                         if (isUnic && Greaters(numbers, 3) && !isNegative(numbers))
                         {
-                            numbers = Sorts.DutchFlagSort(numbers);
-                            SetResult(numbers, "Задача Дейкстры", "O(n)", 10, "O(1)");
+                            (numbers, time) = PerformAndMeasure(Sorts.DutchFlagSort, numbers);
+                            SetResult(numbers, "Задача Дейкстры", "O(n)", time.Milliseconds, "O(1)");
                             break;
                         }
                         else
@@ -101,8 +105,8 @@ namespace Interface
                         isUnic = CheckOnUnic(numbers, 4);
                         if (isUnic && Greaters(numbers, 4) && !isNegative(numbers))
                         {
-                            numbers = Sorts.HogwartsHat(numbers);
-                            SetResult(numbers, "Сортировочная шляпа", "O(n)", 10, "O(1)");
+                            (numbers, time) = PerformAndMeasure(Sorts.HogwartsHat, numbers);
+                            SetResult(numbers, "Сортировочная шляпа", "O(n)", time.Milliseconds, "O(1)");
                             break;
                         }
                         else
@@ -224,6 +228,26 @@ namespace Interface
             }
 
             textBox1.Text = PrintArray(Sorts.genRandInt(len));
+        }
+
+        /// <summary>
+        /// Замеряет время выполнения функции, принимающей массив int[]
+        /// </summary>
+        /// <param name="function">Функция для выполнения</param>
+        /// <param name="inputArray">Входной массив</param>
+        /// <returns>Кортеж (результат, время выполнения)</returns>
+        public static (int[] Result, TimeSpan Elapsed) PerformAndMeasure(Func<int[], int[]> function, int[] inputArray)
+        {
+            // пример вызов функции: (numbers, TimeSpan time) = PerformAndMeasure(Sorts.BubbleSort,numbers);
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            int[] result = function(inputArray);
+            stopwatch.Stop();
+            //пример вывода замера времени:
+            //MessageBox.Show($"Время выполнения: {stopwatch.Elapsed.TotalMilliseconds} мс",
+            //"Результат замера",
+            //MessageBoxButtons.OK,
+            //MessageBoxIcon.Information);
+            return (result, stopwatch.Elapsed);
         }
     }
 }
